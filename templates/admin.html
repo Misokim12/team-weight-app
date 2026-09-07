@@ -4,6 +4,7 @@
   <div>
     <span class="eyebrow">COACH</span>
     <h1>지도자 대시보드</h1>
+    <a href="{{ url_for('change_password') }}" style="margin-right: 15px;">🔒 비밀번호 변경</a>
     <p class="muted">기록 현황, 체중 추이, 선수 계정을 한 곳에서 관리합니다.</p>
   </div>
   <a class="button secondary" href="{{ url_for('export_csv', start=start, end=end) }}">CSV 다운로드</a>
