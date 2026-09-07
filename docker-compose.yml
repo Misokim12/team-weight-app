@@ -1,0 +1,31 @@
+services:
+  app:
+    build: .
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      DATABASE_URL: postgresql+psycopg://weight:weightpass@db:5432/weight
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8000:8000"
+
+  db:
+    image: postgres:17
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: weight
+      POSTGRES_USER: weight
+      POSTGRES_PASSWORD: weightpass
+    volumes:
+      - weight_db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U weight -d weight"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+volumes:
+  weight_db:
