@@ -60,7 +60,7 @@ body.login-page {
   min-height:100vh;
   background-image:
     linear-gradient(180deg, rgba(23,32,51,.55), rgba(23,32,51,.78)),
-    url("/static/images/team-photo.jpg");
+    url("/static/team-photo.jpg");
   background-size:cover;
   background-position:center;
   background-repeat:no-repeat;
