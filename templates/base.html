@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
   <title>선수 체중관리</title>
 </head>
-<body>
+<body class="{% block body_class %}{% endblock %}">
 <header class="topbar">
   <div class="wrap nav">
     <a class="brand" href="{{ url_for('index') }}">선수 체중관리</a>
